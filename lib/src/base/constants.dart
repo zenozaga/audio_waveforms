@@ -44,4 +44,6 @@ class Constants {
       "onCurrentExtractedWaveformData";
   static const String useLegacyNormalization = "useLegacyNormalization";
   static const String updateFrequency = "updateFrequency";
+  static const String setSpeed = "setSpeed";
+  static const String speed = "speed";
 }

@@ -7,6 +7,7 @@ import android.os.Looper
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
+import com.google.android.exoplayer2.PlaybackParameters;
 import io.flutter.plugin.common.MethodChannel
 import java.lang.Exception
 
@@ -160,6 +161,24 @@ class AudioPlayer(
             result.success(false)
         }
     }
+
+    fun setSpeed(speed: Float?, result: MethodChannel.Result) {
+        try {
+            val pitch = player?.playbackParameters?.pitch ?: 1F
+            val newSpeed = speed ?: 1F
+
+            if (params != newSpeed) {
+                player?.playbackParameters = PlaybackParameters(newSpeed, pitch)
+                result.success(true)
+            } else {
+                result.success(false)
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            result.success(false)
+        }
+    }
+
 
     private fun startListening(result: MethodChannel.Result) {
         runnable = object : Runnable {

@@ -105,6 +105,11 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
         player?.volume = Float(volume ?? 1.0)
         result(true)
     }
+
+    func setSpeed(_ speed: Double?, _ result: @escaping FlutterResult) {
+        player?.rate = Float(speed ?? 1.0)
+        result(true)
+    }
     
     func seekTo(_ time: Int?, _ result: @escaping FlutterResult) {
         if(time != nil) {

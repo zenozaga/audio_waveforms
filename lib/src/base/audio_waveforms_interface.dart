@@ -147,6 +147,15 @@ class AudioWaveformsInterface {
     return result ?? false;
   }
 
+    ///platform call to set volume
+  Future<bool> setSpeed(double speed, String key) async {
+    var result = await _methodChannel.invokeMethod(Constants.setSpeed, {
+      Constants.speed: speed,
+      Constants.playerKey: key,
+    });
+    return result ?? false;
+  }
+
   ///platform call to seek audio at provided position
   Future<bool> seekTo(String key, int progress) async {
     var result = await _methodChannel.invokeMethod(Constants.seekTo,

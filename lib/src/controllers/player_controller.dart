@@ -244,6 +244,17 @@ class PlayerController extends ChangeNotifier {
     return duration ?? -1;
   }
 
+
+  /// Moves the media to specified time(milliseconds) position.
+  ///
+  /// Minimum Android [O] is required to use this function
+  /// otherwise nothing happens.
+  Future<void> setSpeed(double speed) async {
+    if (speed < 0) return;
+    await AudioWaveformsInterface.instance.setSpeed(speed, playerKey);
+  }
+
+
   /// Moves the media to specified time(milliseconds) position.
   ///
   /// Minimum Android [O] is required to use this function
