@@ -128,6 +128,7 @@ await controller.startPlayer(finishMode: FinishMode.stop);          // Start aud
 await controller.pausePlayer();                                     // Pause audio player
 await controller.stopPlayer();                                      // Stop audio player
 await controller.setVolume(1.0);                                    // Set volume level
+await controller.setSpeed(1.0);                                     // Set speed level
 await controller.seekTo(5000);                                      // Seek audio
 final duration = await controller.getDuration(DurationType.max);    // Get duration of audio player
 controller.updateFrequency = UpdateFrequency.low;                   // Update reporting rate of current duration.
