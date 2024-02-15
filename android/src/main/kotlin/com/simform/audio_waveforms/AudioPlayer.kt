@@ -164,10 +164,11 @@ class AudioPlayer(
 
     fun setSpeed(speed: Float?, result: MethodChannel.Result) {
         try {
+            val oldSpeed = player?.playbackParameters?.speed ?: 1F
             val pitch = player?.playbackParameters?.pitch ?: 1F
             val newSpeed = speed ?: 1F
 
-            if (params != newSpeed) {
+            if (oldSpeed != newSpeed) {
                 player?.playbackParameters = PlaybackParameters(newSpeed, pitch)
                 result.success(true)
             } else {
